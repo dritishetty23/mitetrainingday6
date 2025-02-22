@@ -53,3 +53,18 @@ int searchBinary(float* salaries, int size, float searchSalary) {
     }
     return -1;
 }
+int sortInsertion(float* salaries, int size) {
+    for(int I = 1; I < size; I++) {
+        int targetIndex = I;
+        float target = salaries[targetIndex];
+        for(int sortedIndex = I - 1; 
+            sortedIndex >= 0 && salaries[sortedIndex] > target;
+            sortedIndex--) {
+            salaries[targetIndex] = salaries[sortedIndex];
+            targetIndex--;
+        }
+        if(targetIndex != I) {
+            salaries[targetIndex] = target;
+        }
+    }
+}
